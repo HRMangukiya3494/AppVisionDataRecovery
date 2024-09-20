@@ -8,6 +8,8 @@ import 'package:video_player/video_player.dart';
 import 'package:photo_recovery/views/utils/GIFUtils.dart';
 import 'package:photo_recovery/views/utils/ImageUtils.dart';
 
+import '../utils/ColorUtils.dart';
+
 class ScanningPage extends StatefulWidget {
   const ScanningPage({super.key});
 
@@ -78,14 +80,7 @@ class _ScanningPageState extends State<ScanningPage>
         ),
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Color(0xff9099FF),
-                Color(0xff4B5DFF),
-              ],
-            ),
+            gradient: ColorUtils.mainGradient,
           ),
         ),
       ),
@@ -112,14 +107,7 @@ class _ScanningPageState extends State<ScanningPage>
                 height: h * 0.5,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [
-                      Color(0xff9099FF),
-                      Color(0xff4B5DFF),
-                    ],
-                  ),
+                  gradient: ColorUtils.mainGradient,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(h * 0.02),
                     topRight: Radius.circular(h * 0.02),

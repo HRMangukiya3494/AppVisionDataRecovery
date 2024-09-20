@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:photo_recovery/controller/HomeController.dart';
 import 'package:photo_recovery/views/utils/ImageUtils.dart';
 import 'package:photo_recovery/views/utils/ListUtils.dart';
+import '../utils/ColorUtils.dart';
 
 class HomePage extends StatelessWidget {
   final HomeController controller = Get.put(
@@ -37,15 +38,8 @@ class HomePage extends StatelessWidget {
           ),
         ),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Color(0xff9099FF),
-                Color(0xff4B5DFF),
-              ],
-            ),
+          decoration: const BoxDecoration(
+            gradient: ColorUtils.mainGradient,
           ),
         ),
       ),
@@ -132,7 +126,7 @@ class HomePage extends StatelessWidget {
               style: TextStyle(
                 fontSize: h * 0.034,
                 fontWeight: FontWeight.bold,
-                color: Color(0xff4952B0),
+                color: Color(0xff6974D8),
               ),
             ),
             SizedBox(
@@ -142,7 +136,7 @@ class HomePage extends StatelessWidget {
               "Tap scan now to start scanning",
               style: TextStyle(
                 fontSize: h * 0.026,
-                color: Color(0xff4952B0).withOpacity(0.5),
+                color: Color(0xff6974D8).withOpacity(0.5),
               ),
               textAlign: TextAlign.center,
             ),

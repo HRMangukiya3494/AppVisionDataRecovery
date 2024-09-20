@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:photo_recovery/controller/ScannedController.dart';
 import 'package:photo_recovery/model/FileModel.dart';
 
+import '../utils/ColorUtils.dart';
 import '../utils/ImageUtils.dart';
 
 class ScannedPage extends StatelessWidget {
@@ -45,14 +46,7 @@ class ScannedPage extends StatelessWidget {
         ),
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Color(0xff9099FF),
-                Color(0xff4B5DFF),
-              ],
-            ),
+            gradient: ColorUtils.mainGradient,
           ),
         ),
       ),
@@ -80,14 +74,7 @@ class ScannedPage extends StatelessWidget {
               h * 0.02,
             ),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: [
-                  Color(0xff9099FF),
-                  Color(0xff4B5DFF),
-                ],
-              ),
+              gradient: ColorUtils.mainGradient,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(
                   h * 0.02,

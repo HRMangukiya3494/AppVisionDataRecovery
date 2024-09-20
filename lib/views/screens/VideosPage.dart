@@ -6,6 +6,8 @@ import 'package:photo_recovery/views/routes/AppRoutes.dart';
 import 'package:photo_recovery/views/utils/ImageUtils.dart';
 import 'package:photo_recovery/controller/VideoController.dart';
 
+import '../utils/ColorUtils.dart';
+
 class VideosPage extends StatelessWidget {
   const VideosPage({super.key});
 
@@ -38,14 +40,7 @@ class VideosPage extends StatelessWidget {
         ),
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Color(0xff9099FF),
-                Color(0xff4B5DFF),
-              ],
-            ),
+            gradient: ColorUtils.mainGradient,
           ),
         ),
       ),

@@ -5,6 +5,8 @@ import 'package:photo_recovery/model/FileModel.dart';
 import 'package:photo_recovery/views/routes/AppRoutes.dart';
 import 'package:photo_recovery/views/utils/ImageUtils.dart';
 
+import '../utils/ColorUtils.dart';
+
 class AudiosPage extends StatelessWidget {
   final AudioController audioController = Get.put(AudioController());
 
@@ -39,14 +41,7 @@ class AudiosPage extends StatelessWidget {
         ),
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Color(0xff9099FF),
-                Color(0xff4B5DFF),
-              ],
-            ),
+            gradient: ColorUtils.mainGradient,
           ),
         ),
       ),

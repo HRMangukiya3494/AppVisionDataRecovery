@@ -4,6 +4,8 @@ import 'package:photo_recovery/views/utils/ImageUtils.dart';
 import 'package:photo_recovery/model/FileModel.dart';
 import 'package:open_file/open_file.dart';
 
+import '../utils/ColorUtils.dart';
+
 class DocumentsPage extends StatelessWidget {
   final Map<String, String> fileIcons = {
     'doc': ImageUtils.WordVector,
@@ -45,14 +47,7 @@ class DocumentsPage extends StatelessWidget {
         ),
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Color(0xff9099FF),
-                Color(0xff4B5DFF),
-              ],
-            ),
+            gradient: ColorUtils.mainGradient,
           ),
         ),
       ),

@@ -4,6 +4,8 @@ import 'package:photo_recovery/views/routes/AppRoutes.dart';
 import 'package:photo_recovery/views/utils/ImageUtils.dart';
 import 'package:get/get.dart';
 
+import '../utils/ColorUtils.dart';
+
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
 
@@ -18,14 +20,7 @@ class SplashView extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xff9099FF),
-              Color(0xff4B5DFF),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
+          gradient: ColorUtils.mainGradient,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
