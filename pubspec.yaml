@@ -1,0 +1,42 @@
+name: photo_recovery
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  sqflite:
+  path_provider:
+  video_player:
+  audioplayers:
+  video_thumbnail:
+  shared_preferences:
+  audio_video_progress_bar:
+  device_info_plus: ^10.1.0
+  syncfusion_flutter_sliders: ^26.1.40
+  flutter_svg:
+  get: ^4.6.5
+  permission_handler: any
+  url_launcher: ^6.3.0
+  cached_network_image:
+  rate_my_app:
+  open_file: ^3.3.2
+  get_storage:
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/gif/
+    - assets/videos/
+    - assets/png/
