@@ -97,25 +97,25 @@ class ScannerController extends GetxController {
   void initializeRowsData() {
     rowsData = [
       {
-        'iconPath': "${ImageUtils.ImagePath}ImageIcon.png",
+        'iconPath': "${PngImages.PNGPath}ImagesVector.png",
         'title': "Images",
         'count': 0,
         'total': 0,
       },
       {
-        'iconPath': "${ImageUtils.ImagePath}VideoIcon.png",
+        'iconPath': "${PngImages.PNGPath}VideoVector.png",
         'title': "Videos",
         'count': 0,
         'total': 0,
       },
       {
-        'iconPath': "${ImageUtils.ImagePath}AudioIcon.png",
+        'iconPath': "${PngImages.PNGPath}AudioVector.png",
         'title': "Audios",
         'count': 0,
         'total': 0,
       },
       {
-        'iconPath': "${ImageUtils.ImagePath}DocumentIcon.png",
+        'iconPath': "${PngImages.PNGPath}DocumentVector.png",
         'title': "Documents",
         'count': 0,
         'total': 0,

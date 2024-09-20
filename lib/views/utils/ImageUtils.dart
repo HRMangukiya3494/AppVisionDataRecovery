@@ -29,4 +29,9 @@ class PngImages {
   static String SplashVector = "SplashVector.png";
   static String HomeVector = "HomeVector.png";
   static String DrawerVector = "DrawerVector.png";
+  static String VideoVector = "VideoVector.png";
+  static String ImagesVector = "ImagesVector.png";
+  static String DocumentVector = "DocumentVector.png";
+  static String AudioVector = "AudioVector.png";
+  static String ScanningVetctor = "ScanningVetctor.png";
 }
