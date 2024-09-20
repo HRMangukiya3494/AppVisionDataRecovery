@@ -8,7 +8,8 @@ List<Map> DrawerList = [
     'ImageURL': "assets/images/GalleryIcon.png",
     'Name': "More Apps",
     'onTap': (BuildContext context) async {
-      const String allAppLink = 'https://play.google.com/store/apps/developer?id=AppVision+Studio&hl=en-US';
+      const String allAppLink =
+          'https://play.google.com/store/apps/developer?id=AppVision+Studio&hl=en-US';
       _launchURL(context, allAppLink);
     },
   },
@@ -16,7 +17,8 @@ List<Map> DrawerList = [
     'ImageURL': "assets/images/PrivacyPolicyIcon.png",
     'Name': "Privacy Policy",
     'onTap': (BuildContext context) async {
-      const String privacyPolicyLink = 'https://customize.brainartit.com/DataRecovery/PrivacyPolicy.php';
+      const String privacyPolicyLink =
+          'https://customize.brainartit.com/DataRecovery/PrivacyPolicy.php';
       _launchURL(context, privacyPolicyLink);
     },
   },
@@ -24,7 +26,8 @@ List<Map> DrawerList = [
     'ImageURL': "assets/images/ShareIcon.png",
     'Name': "Share",
     'onTap': (BuildContext context) async {
-      const String appLink = 'https://play.google.com/store/apps/details?id=com.appvision.datarecovery';
+      const String appLink =
+          'https://play.google.com/store/apps/details?id=com.appvision.datarecovery';
       _launchURL(context, appLink);
     },
   },
@@ -48,9 +51,11 @@ Future<void> _launchURL(BuildContext context, String url) async {
     }
   } catch (e) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(e.toString())),
+      SnackBar(
+        content: Text(
+          e.toString(),
+        ),
+      ),
     );
   }
 }
-
-

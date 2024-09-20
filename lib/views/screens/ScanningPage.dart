@@ -58,10 +58,6 @@ class _ScanningPageState extends State<ScanningPage>
     super.dispose();
   }
 
-  double _getRandomValue(int min, int max) {
-    return (min + (max - min) * (Random().nextDouble())).toDouble();
-  }
-
   void startAnimation() {
     _controller.forward(from: 0.0); // Restart from beginning
   }

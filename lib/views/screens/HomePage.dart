@@ -59,9 +59,9 @@ class HomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    ImageUtils.ImagePath + ImageUtils.DrawerVector,
+                    PngImages.PNGPath + PngImages.DrawerVector,
                   ),
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.fitHeight,
                 ),
               ),
             ),

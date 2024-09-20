@@ -28,4 +28,5 @@ class PngImages {
   static String PNGPath = "assets/png/";
   static String SplashVector = "SplashVector.png";
   static String HomeVector = "HomeVector.png";
+  static String DrawerVector = "DrawerVector.png";
 }
