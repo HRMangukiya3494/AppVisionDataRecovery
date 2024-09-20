@@ -19,22 +19,22 @@ class ScannedPageController extends GetxController {
 
   List<Map> ScannedList = [
     {
-      'ImageURL': ImageUtils.ImagePath + ImageUtils.ImageVector,
+      'ImageURL': PngImages.PNGPath + PngImages.ImageScannedVector,
       'Name': "Images",
       'onTap': AppRoutes.IMAGESPAGE,
     },
     {
-      'ImageURL': ImageUtils.ImagePath + ImageUtils.VideoVector,
+      'ImageURL': PngImages.PNGPath + PngImages.VideoScannedVector,
       'Name': "Videos",
       'onTap': AppRoutes.VIDEOSPAGE,
     },
     {
-      'ImageURL': ImageUtils.ImagePath + ImageUtils.AudioVector,
+      'ImageURL': PngImages.PNGPath + PngImages.AudioScannedVector,
       'Name': "Audios",
       'onTap': AppRoutes.AUDIOSPAGE,
     },
     {
-      'ImageURL': ImageUtils.ImagePath + ImageUtils.DocumentVector,
+      'ImageURL': PngImages.PNGPath + PngImages.DocumentsScannedVector,
       'Name': "Documents",
       'onTap': AppRoutes.DOCUMENTPAGE,
     },

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:photo_recovery/controller/ScannedController.dart';
 import 'package:photo_recovery/model/FileModel.dart';
-import 'package:photo_recovery/views/utils/ImageUtils.dart';
+
+import '../utils/ImageUtils.dart';
 
 class ScannedPage extends StatelessWidget {
   const ScannedPage({super.key});
@@ -24,232 +25,228 @@ class ScannedPage extends StatelessWidget {
     List ScannedList = controller.ScannedList;
 
     return Scaffold(
-      body: Stack(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
+        title: Text(
+          "Scanned",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: h * 0.024,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color(0xff9099FF),
+                Color(0xff4B5DFF),
+              ],
+            ),
+          ),
+        ),
+      ),
+      body: Column(
         children: [
+          SizedBox(
+            height: h * 0.06,
+          ),
           Container(
-            height: double.infinity,
+            height: h * 0.3,
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  ImageUtils.ImagePath + ImageUtils.ScannedPageBG,
+                  PngImages.PNGPath + PngImages.ScannedVector,
                 ),
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.fitHeight,
               ),
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Get.back();
-            },
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: h * 0.02,
-                top: h * 0.06,
+          const Spacer(),
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.all(
+              h * 0.02,
+            ),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [
+                  Color(0xff9099FF),
+                  Color(0xff4B5DFF),
+                ],
               ),
-              child: Container(
-                height: h * 0.05,
-                width: h * 0.05,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: const Color(0xffFFFFFF).withOpacity(0.2),
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(
+                  h * 0.02,
                 ),
-                child: const Center(
-                  child: Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  ),
+                topLeft: Radius.circular(
+                  h * 0.02,
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: h * 0.08,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Center(
-                  child: Container(
-                    height: h * 0.16,
-                    width: h * 0.16,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          ImageUtils.ImagePath + ImageUtils.ScannedVector,
-                        ),
-                        fit: BoxFit.fitHeight,
-                      ),
-                    ),
-                  ),
-                ),
-                Center(
-                  child: Text(
-                    "Scanned!",
-                    style: TextStyle(
-                      fontSize: h * 0.03,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                const Spacer(),
-                Container(
-                  height: h * 0.68,
-                  width: double.infinity,
-                  padding: EdgeInsets.all(
-                    h * 0.02,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(
-                        h * 0.02,
-                      ),
-                      topLeft: Radius.circular(
-                        h * 0.02,
-                      ),
-                    ),
-                  ),
-                  child: Obx(() => Column(
-                    children: [
-                      for (int i = 0; i < ScannedList.length; i += 2)
-                        Row(
-                          children: [
-                            if (i < ScannedList.length)
-                              Expanded(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    _handleOnTap(controller, i);
-                                  },
-                                  child: Container(
-                                    margin: EdgeInsets.only(
-                                      bottom: h * 0.02,
-                                      right: h * 0.01,
+            child: Obx(() => Column(
+                  children: [
+                    for (int i = 0; i < ScannedList.length; i += 2)
+                      Row(
+                        children: [
+                          if (i < ScannedList.length)
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () {
+                                  _handleOnTap(controller, i);
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.only(
+                                    bottom: h * 0.02,
+                                    right: h * 0.01,
+                                  ),
+                                  height: h * 0.2,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                      color: const Color(0xffE2E5FF),
                                     ),
-                                    height: h * 0.2,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      border: Border.all(
-                                        color: const Color(0xffE2E5FF),
-                                      ),
-                                      borderRadius: BorderRadius.circular(
-                                        h * 0.01,
-                                      ),
+                                    borderRadius: BorderRadius.circular(
+                                      h * 0.01,
                                     ),
-                                    child: Column(
-                                      children: [
-                                        SizedBox(height: h * 0.02),
-                                        Container(
-                                          height: h * 0.096,
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              image: AssetImage(ScannedList[i]['ImageURL']),
-                                              fit: BoxFit.fitHeight,
-                                            ),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(height: h * 0.02),
+                                      Container(
+                                        height: h * 0.096,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                ScannedList[i]['ImageURL']),
+                                            fit: BoxFit.fitHeight,
                                           ),
                                         ),
-                                        const Spacer(),
-                                        Container(
-                                          height: h * 0.06,
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              bottomRight: Radius.circular(h * 0.01),
-                                              bottomLeft: Radius.circular(h * 0.01),
-                                            ),
-                                            color: const Color(0XFFE2E5FF),
+                                      ),
+                                      const Spacer(),
+                                      Container(
+                                        height: h * 0.06,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                            bottomRight:
+                                                Radius.circular(h * 0.01),
+                                            bottomLeft:
+                                                Radius.circular(h * 0.01),
                                           ),
-                                          child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                ScannedList[i]['Name'],
-                                                style: const TextStyle(color: Color(0xff4C5DFF)),
-                                              ),
-                                              Text(
-                                                _getCount(controller, i).toString(),
-                                                style: const TextStyle(color: Colors.black),
-                                              ),
-                                            ],
-                                          ),
+                                          color: const Color(0XFFE2E5FF),
                                         ),
-                                      ],
-                                    ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              ScannedList[i]['Name'],
+                                              style: const TextStyle(
+                                                  color: Color(0xff4C5DFF)),
+                                            ),
+                                            Text(
+                                              _getCount(controller, i)
+                                                  .toString(),
+                                              style: const TextStyle(
+                                                  color: Colors.black),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
-                            if (i + 1 < ScannedList.length)
-                              Expanded(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    _handleOnTap(controller, i + 1);
-                                  },
-                                  child: Container(
-                                    height: h * 0.2,
-                                    margin: EdgeInsets.only(
-                                      left: w * 0.03,
-                                      bottom: h * 0.02,
+                            ),
+                          if (i + 1 < ScannedList.length)
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () {
+                                  _handleOnTap(controller, i + 1);
+                                },
+                                child: Container(
+                                  height: h * 0.2,
+                                  margin: EdgeInsets.only(
+                                    left: w * 0.03,
+                                    bottom: h * 0.02,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                      color: const Color(0xffE2E5FF),
                                     ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      border: Border.all(
-                                        color: const Color(0xffE2E5FF),
+                                    borderRadius:
+                                        BorderRadius.circular(h * 0.01),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(height: h * 0.02),
+                                      Container(
+                                        height: h * 0.096,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                ScannedList[i + 1]['ImageURL']),
+                                            fit: BoxFit.fitHeight,
+                                          ),
+                                        ),
                                       ),
-                                      borderRadius: BorderRadius.circular(h * 0.01),
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        SizedBox(height: h * 0.02),
-                                        Container(
-                                          height: h * 0.096,
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              image: AssetImage(ScannedList[i + 1]['ImageURL']),
-                                              fit: BoxFit.fitHeight,
-                                            ),
+                                      const Spacer(),
+                                      Container(
+                                        height: h * 0.06,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                            bottomRight:
+                                                Radius.circular(h * 0.01),
+                                            bottomLeft:
+                                                Radius.circular(h * 0.01),
                                           ),
+                                          color: const Color(0XFFE2E5FF),
                                         ),
-                                        const Spacer(),
-                                        Container(
-                                          height: h * 0.06,
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              bottomRight: Radius.circular(h * 0.01),
-                                              bottomLeft: Radius.circular(h * 0.01),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              ScannedList[i + 1]['Name'],
+                                              style: const TextStyle(
+                                                  color: Color(0xff4C5DFF)),
                                             ),
-                                            color: const Color(0XFFE2E5FF),
-                                          ),
-                                          child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                ScannedList[i + 1]['Name'],
-                                                style: const TextStyle(color: Color(0xff4C5DFF)),
-                                              ),
-                                              Text(
-                                                _getCount(controller, i + 1).toString(),
-                                                style: const TextStyle(color: Colors.black),
-                                              ),
-                                            ],
-                                          ),
+                                            Text(
+                                              _getCount(controller, i + 1)
+                                                  .toString(),
+                                              style: const TextStyle(
+                                                  color: Colors.black),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
-                          ],
-                        ),
-                    ],
-                  )),
-                ),
-              ],
-            ),
+                            ),
+                        ],
+                      ),
+                  ],
+                )),
           ),
         ],
       ),

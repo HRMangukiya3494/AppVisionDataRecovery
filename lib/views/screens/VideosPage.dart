@@ -14,98 +14,67 @@ class VideosPage extends StatelessWidget {
     final VideoController controller = Get.put(VideoController());
 
     double h = MediaQuery.of(context).size.height;
-    double w = MediaQuery.of(context).size.width;
     final List<FileModel> videoFiles = Get.arguments['files'] ?? [];
     controller.setVideos(videoFiles);
 
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  ImageUtils.ImagePath + ImageUtils.ImagesPageBG,
-                ),
-                fit: BoxFit.fitWidth,
-              ),
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
+        title: Text(
+          "Videos",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: h * 0.024,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color(0xff9099FF),
+                Color(0xff4B5DFF),
+              ],
             ),
           ),
-          Column(
-            children: [
-              SizedBox(height: h * 0.04),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: h * 0.02,
-                  right: h * 0.02,
-                  top: h * 0.02,
-                ),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        height: h * 0.05,
-                        width: h * 0.05,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: const Color(0xffFFFFFF).withOpacity(0.2),
-                        ),
-                        child: const Center(
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: w * 0.26),
-                    Text(
-                      "Videos",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: h * 0.024,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const Spacer(),
-              Container(
-                height: h * 0.84,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(h * 0.02),
-                    topRight: Radius.circular(h * 0.02),
-                  ),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: h * 0.04,
-                    right: h * 0.04,
-                    top: h * 0.04,
-                  ),
-                  child: Obx(() {
-                    if (controller.isLoading.value) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (controller.videos.isEmpty) {
-                      return _buildNoVideosFound(h);
-                    } else {
-                      return _buildVideosGrid(controller, h);
-                    }
-                  }),
-                ),
-              ),
-            ],
+        ),
+      ),
+      body: Container(
+        height: h * 0.84,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(h * 0.02),
+            topRight: Radius.circular(h * 0.02),
           ),
-        ],
+          color: Colors.white,
+        ),
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: h * 0.04,
+            right: h * 0.04,
+            top: h * 0.04,
+          ),
+          child: Obx(() {
+            if (controller.isLoading.value) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (controller.videos.isEmpty) {
+              return _buildNoVideosFound(h);
+            } else {
+              return _buildVideosGrid(controller, h);
+            }
+          }),
+        ),
       ),
     );
   }
@@ -169,7 +138,8 @@ class VideosPage extends StatelessWidget {
                     AppRoutes.DETAILVIDEOSPAGE,
                     arguments: {
                       'videoIndex': index,
-                      'videoPaths': controller.videos.map((v) => v.path).toList(),
+                      'videoPaths':
+                          controller.videos.map((v) => v.path).toList(),
                     },
                   );
                 },
@@ -197,7 +167,8 @@ class VideosPage extends StatelessWidget {
                                 width: h * 0.04,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: const Color(0xFF000000).withOpacity(0.5),
+                                  color:
+                                      const Color(0xFF000000).withOpacity(0.5),
                                 ),
                                 child: const Center(
                                   child: Icon(

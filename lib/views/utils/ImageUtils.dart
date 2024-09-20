@@ -34,4 +34,9 @@ class PngImages {
   static String DocumentVector = "DocumentVector.png";
   static String AudioVector = "AudioVector.png";
   static String ScanningVetctor = "ScanningVetctor.png";
+  static String ScannedVector = "ScannedVector.png";
+  static String AudioScannedVector = "AudioScannedVector.png";
+  static String ImageScannedVector = "ImageScannedVector.png";
+  static String VideoScannedVector = "VideoScannedVector.png";
+  static String DocumentsScannedVector = "DocumentsScannedVector.png";
 }

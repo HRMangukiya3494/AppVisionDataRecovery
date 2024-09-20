@@ -53,16 +53,6 @@ class _ScanningPageState extends State<ScanningPage>
   }
 
   @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  void startAnimation() {
-    _controller.forward(from: 0.0); // Restart from beginning
-  }
-
-  @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
